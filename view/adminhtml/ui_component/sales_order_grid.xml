@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Banca Transilvania. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<listing
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd"
+>
+    <columns name="sales_order_columns">
+        <column name="btrl_ipay_status" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <filter>select</filter>
+                <options class="BTRL\Ipay\Ui\Component\Listing\Column\PaymentStatus" />
+                <dataType>select</dataType>
+                <label translate="true">BTRL iPay Status</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

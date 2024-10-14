@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Banca Transilvania. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<mapping
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Payment:etc/error_mapping.xsd"
+>
+    <message_list>
+        <message code="-20010" translate="true">Transaction is rejected since the amount exceeds the limits specified by the Issuing bank.</message>
+        <message code="-2011" translate="true">Issuing bank was not able to perform the 3-D Secure card authorization.</message>
+        <message code="-2007" translate="true">Session time limit.</message>
+        <message code="-2006" translate="true">3DS authorization has not been performed.</message>
+        <message code="-2002" translate="true">Transaction was rejected because the payment amount exceeded the established limits.</message>
+        <message code="-2001" translate="true">Transaction is rejected since Client's IP address is in the black list.</message>
+        <message code="-2000" translate="true">Transaction is rejected since the card number is in the black list.</message>
+        <message code="-102" translate="true">The payment was cancelled by the payment agent.</message>
+        <message code="-1" translate="true">The timer of waiting for a processing response has expired.</message>
+        <message code="1" translate="true">Order number is missing or wrong.</message>
+        <message code="2" translate="true">The order is declined because of an error in the payment credentials.</message>
+        <message code="5" translate="true">Access denied</message>
+        <message code="6" translate="true">Unregistered order ID.</message>
+        <message code="7" translate="true">System error</message>
+        <message code="100" translate="true">The Issuing bank forbade internet transactions by the card.</message>
+        <message code="101" translate="true">Card is expired</message>
+        <message code="103" translate="true">There is no connection to the Issuing bank.</message>
+        <message code="104" translate="true">Card restricted (temporary or permanent block).</message>
+        <message code="106" translate="true">The maximum number of attempts to enter PIN is exceeded. It is possible that the card is blocked temporary.</message>
+        <message code="107" translate="true">Declined. Please, contact the Issuing bank.</message>
+        <message code="110" translate="true">Transaction amount is incorrect.</message>
+        <message code="111" translate="true">Card number is incorrect.</message>
+        <message code="116" translate="true">Transaction amount exceeds the available balance of the selected account.</message>
+        <message code="119" translate="true">Illegal transaction.</message>
+        <message code="120" translate="true">Refusal to perform the operation - the transaction is not allowed by the Issuing bank.</message>
+        <message code="121" translate="true">Transaction was rejected because the payment amount exceeded the established limits.</message>
+        <message code="123" translate="true">Transaction was rejected because the payment amount exceeded the established limits.</message>
+        <message code="124" translate="true">Transaction cannot be authorized due to government, central bank or financial institution agreement, laws or regulations.</message>
+        <message code="125" translate="true">Card number is incorrect.</message>
+        <message code="208" translate="true">Card is lost.</message>
+        <message code="209" translate="true">Card limitations exceeded.</message>
+        <message code="320" translate="true">Inactive card. Please activate the card.</message>
+        <message code="801" translate="true">Issuer unavailable.</message>
+        <message code="803" translate="true">Card blocked. Contact the issuing bank or retry the transaction with another card.</message>
+        <message code="804" translate="true">Transaction not permitted. Contact the issuing bank or retry the transaction with another card.</message>
+        <message code="805" translate="true">Transaction rejected.</message>
+        <message code="861" translate="true">Wrong card expiration date.</message>
+        <message code="871" translate="true">Wrong CVV.</message>
+        <message code="902" translate="true">Card limitations exceeded.</message>
+        <message code="903" translate="true">Transaction was rejected because the payment amount exceeded the established limits.</message>
+        <message code="905" translate="true">Invalid card. It does not exist in the database.</message>
+        <message code="906" translate="true">Card expired.</message>
+        <message code="907" translate="true">There is no connection to the Issuing bank.</message>
+        <message code="910" translate="true">Issuing bank is not available.</message>
+        <message code="913" translate="true">Invalid transaction. Contact the issuing bank or retry the transaction with another card.</message>
+        <message code="914" translate="true">Invalid account. Please contact the issuing bank.</message>
+        <message code="915" translate="true">Insufficient funds.</message>
+        <message code="917" translate="true">Transaction limit exceeded.</message>
+        <message code="952" translate="true">Fraud is suspected.</message>
+        <message code="998" translate="true">Installment transaction is not allowed with this card. Please use a credit card issued by Banca Transilvania.</message>
+        <message code="999" translate="true">Fraud is suspected.</message>
+        <message code="2001" translate="true">Fraud is suspected.</message>
+        <message code="341016" translate="true">3DS2 authentication is declined by Authentication Response (ARes) – issuer</message>
+        <message code="341017" translate="true">3DS2 authentication status in ARes is unknown - issuer</message>
+        <message code="341018" translate="true">3DS2 CReq cancelled - client</message>
+        <message code="341019" translate="true">3DS2 CReq failed - client/issuer</message>
+        <message code="341020" translate="true">3DS2 unknown status in RReq - issuer</message>
+    </message_list>
+</mapping>

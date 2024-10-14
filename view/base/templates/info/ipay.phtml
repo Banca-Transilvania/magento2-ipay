@@ -1,0 +1,30 @@
+<?php
+/**
+ * Copyright © Banca Transilvania. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+declare(strict_types=1);
+
+/** @var \BTRL\Ipay\Block\Info\Ipay $block */
+/** @var \Magento\Framework\Escaper $escaper */
+
+/** @var \Magento\Sales\Model\Order\Payment $paymentInfo */
+$paymentInfo = $block->getInfo();
+/** @var \Magento\Sales\Model\Order $order */
+$order = $paymentInfo->getOrder();
+?>
+<span><?= $escaper->escapeHtml($block->getMethod()->getTitle()); ?></span>
+<?php if (
+    $order->getState() === \Magento\Sales\Model\Order::STATE_NEW
+    && !empty($paymentInfo->getAdditionalInformation('redirectUrl'))
+): ?>
+    <div>
+        <a rel=noopener
+           target="_blank"
+           href="<?= $escaper->escapeHtml($paymentInfo->getAdditionalInformation('redirectUrl')); ?>">
+            <?= $escaper->escapeHtml(__('Payment Link')) ?>
+        </a>
+    </div>
+<?php endif; ?>
+<?= $escaper->escapeHtml($block->getChildHtml()); ?>

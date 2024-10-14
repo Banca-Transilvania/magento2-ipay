@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Banca Transilvania. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd"
+>
+    <default>
+        <payment>
+            <btrl_ipay>
+                <model>BTRLiPay</model>
+                <active>0</active>
+                <order_status_new>pending</order_status_new>
+                <order_status_paid>processing</order_status_paid>
+                <title>Plata online prin BT iPay</title>
+                <allowspecific>0</allowspecific>
+                <phase>authorize</phase>
+                <payment_action>authorize</payment_action>
+                <send_auto_invoice_email>1</send_auto_invoice_email>
+                <testmode>1</testmode>
+                <sort_order>10</sort_order>
+                <pending_lifetime>1</pending_lifetime>
+                <charged_currency>base</charged_currency>
+                <group>btrl</group>
+                <can_initialize>1</can_initialize>
+                <is_gateway>1</is_gateway>
+                <can_use_checkout>1</can_use_checkout>
+                <can_authorize>1</can_authorize>
+                <can_authorize_3d>1</can_authorize_3d>
+                <can_capture>1</can_capture>
+                <can_capture_partial>0</can_capture_partial>
+                <can_use_internal>0</can_use_internal>
+                <can_refund_partial_per_invoice>1</can_refund_partial_per_invoice>
+                <can_refund>1</can_refund>
+                <can_void>1</can_void>
+                <can_cancel>1</can_cancel>
+                <debug_log>
+                    <enable>0</enable>
+                </debug_log>
+            </btrl_ipay>
+        </payment>
+    </default>
+</config>

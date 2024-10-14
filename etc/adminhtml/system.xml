@@ -1,0 +1,300 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Banca Transilvania. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd"
+>
+    <system>
+        <section id="payment">
+            <group
+                id="btrl_ipay"
+                translate="label"
+                type="text"
+                sortOrder="100"
+                showInDefault="1"
+                showInWebsite="1"
+                showInStore="1"
+            >
+                <label>BT iPay Payment</label>
+                <field
+                    id="active"
+                    translate="label"
+                    type="select"
+                    sortOrder="10"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0"
+                >
+                    <label>Active</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field
+                    id="title"
+                    translate="label"
+                    type="text"
+                    sortOrder="20"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1"
+                    canRestore="1"
+                >
+                    <label>Title</label>
+                </field>
+                <field
+                    id="bank_description"
+                    translate="label"
+                    type="text"
+                    sortOrder="25"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1"
+                >
+                    <label>Description On Bank Receipt</label>
+                </field>
+                <field
+                    id="merchant_username"
+                    translate="label"
+                    sortOrder="30"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0"
+                >
+                    <label>Username</label>
+                </field>
+                <field
+                    id="merchant_pass"
+                    translate="label"
+                    type="password"
+                    sortOrder="40"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0"
+                >
+                    <label>Password</label>
+                </field>
+                <field
+                    id="testmode"
+                    translate="label"
+                    type="select"
+                    sortOrder="50"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0"
+                >
+                    <label>Test mode?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field
+                    id="phase"
+                    translate="label comment"
+                    type="select"
+                    sortOrder="60"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0"
+                    canRestore="1"
+                >
+                    <label>Payment through</label>
+                    <source_model>BTRL\Ipay\Model\Config\Source\Phase</source_model>
+                    <comment><![CDATA[<b>One Phase</b> = collection transaction is done automatically, no intervention is required from the merchant. Option is suitable for services such as insurance, tickets / subscriptions, where "deposit" is made automatically for successfully completed transactions. <br/><b>Two Phase</b> = collection transaction takes place only after the merchant performs the collection operation. Option is suitable for goods services that require delivery.]]></comment>
+                </field>
+                <field
+                    id="send_auto_invoice_email"
+                    translate="label"
+                    type="select"
+                    sortOrder="70"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0"
+                >
+                    <label>Send Auto-Invoice Email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="phase">sales</field>
+                    </depends>
+                </field>
+                <field
+                    id="order_status_new"
+                    translate="label"
+                    type="select"
+                    sortOrder="80"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0"
+                    canRestore="1"
+                >
+                    <label>New order status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field
+                    id="order_status_paid"
+                    translate="label"
+                    type="select"
+                    sortOrder="90"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0"
+                    canRestore="1"
+                >
+                    <label>Paid order status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\Processing</source_model>
+                </field>
+                <field
+                    id="allowspecific"
+                    translate="label"
+                    type="allowspecific"
+                    sortOrder="100"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0"
+                    canRestore="1"
+                >
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field
+                    id="specificcountry"
+                    translate="label"
+                    type="multiselect"
+                    sortOrder="101"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0"
+                >
+                    <label>Payment from Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field
+                    id="min_order_total"
+                    translate="label comment"
+                    type="text"
+                    sortOrder="110"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0"
+                >
+                    <label>Minimum Order Total</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                    <comment><![CDATA[Payment method is available for orders with a total above the set amount. Leave empty for the method to always be available.]]></comment>
+                </field>
+                <field
+                    id="max_order_total"
+                    translate="label comment"
+                    type="text"
+                    sortOrder="120"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0"
+                >
+                    <label>Maximum Order Total</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                    <comment><![CDATA[Payment method is available for orders with a total below the set amount. Leave empty for the method to always be available.]]></comment>
+                </field>
+                <field
+                    id="sort_order"
+                    translate="label"
+                    type="text"
+                    sortOrder="130"
+                    showInDefault="1"
+                    showInWebsite="1"
+                >
+                    <label>Sort Order</label>
+                    <frontend_class>validate-number</frontend_class>
+                </field>
+                <field
+                    id="pending_lifetime"
+                    translate="label comment"
+                    type="text"
+                    sortOrder="140"
+                    showInDefault="1"
+                    showInWebsite="0"
+                >
+                    <label>Cancel pending orders older than [hours]</label>
+                    <frontend_class>validate-number</frontend_class>
+                    <comment><![CDATA[Leave empty or 0 to disable.]]></comment>
+                </field>
+                <field
+                    id="sca_exemption"
+                    translate="label comment"
+                    type="select"
+                    sortOrder="150"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0"
+                    canRestore="1"
+                >
+                    <label>SCA Exemption</label>
+                    <source_model>BTRL\Ipay\Model\Config\Source\ScaExemption</source_model>
+                    <comment><![CDATA[This works in agreement between merchant and BT. Not agreed exemptions will still go through 3DSecure verification.]]></comment>
+                </field>
+                <field
+                    id="charged_currency"
+                    translate="label comment"
+                    type="select"
+                    sortOrder="160"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1"
+                    canRestore="1"
+                >
+                    <label>Charged currency</label>
+                    <source_model>BTRL\Ipay\Model\Config\Source\ChargedCurrency</source_model>
+                    <comment><![CDATA[You can charge in the base currency or the store view currency selected by user. Please note that not all currencies might be accepted by the bank.]]></comment>
+                </field>
+                <group
+                    id="callback"
+                    translate="label"
+                    type="text"
+                    sortOrder="180"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0"
+                >
+                    <label>Callback</label>
+                    <field
+                        id="decryption_key"
+                        translate="label comment"
+                        type="password"
+                        sortOrder="40"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="0"
+                    >
+                        <label>Decryption Key (Base64)</label>
+                        <comment><![CDATA[The key is provided by Banca Transilvania.]]></comment>
+                    </field>
+                </group>
+                <group
+                    id="debug_log"
+                    translate="label"
+                    type="text"
+                    sortOrder="200"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="0"
+                >
+                    <label>Debug Logging</label>
+                    <field
+                        id="enable"
+                        translate="label"
+                        type="select"
+                        sortOrder="10"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="0"
+                    >
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment><![CDATA[Logs can be found in "/var/log/BTRL_Ipay/debug.log" file.]]></comment>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

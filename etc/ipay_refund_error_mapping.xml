@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Banca Transilvania. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<mapping
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Payment:etc/error_mapping.xsd"
+>
+    <message_list>
+        <message code="5" translate="true">Amount is invalid</message>
+        <message code="6" translate="true">Wrong order number</message>
+        <message code="7" translate="true">Payment must be in correct state</message>
+        <message code="8" translate="true">Refund amount exceeds deposited amount.</message>
+    </message_list>
+</mapping>
