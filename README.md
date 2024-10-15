@@ -8,7 +8,7 @@ This is an online payment module for Magento 2, that requires an account with BT
 
 | Magento Version                                   | Module Version                                               |
 |---------------------------------------------------|--------------------------------------------------------------|
-| Magento **2.4.x** Opensource (CE) / Commerce (EE) | **1.x.x** latest release: ```composer require btrl/ipay``` |
+| Magento **2.4.x** Opensource (CE) / Commerce (EE) | **1.0.0** latest release: ```composer require btrl/ipay``` |
 
 ### How to use
 
