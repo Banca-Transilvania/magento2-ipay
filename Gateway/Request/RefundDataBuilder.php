@@ -16,13 +16,9 @@ use Magento\Payment\Gateway\Request\BuilderInterface;
 
 class RefundDataBuilder implements BuilderInterface
 {
-    private OrderProcessor $orderProcessor;
-
     public function __construct(
-        OrderProcessor $orderProcessor
-    ) {
-        $this->orderProcessor = $orderProcessor;
-    }
+        private readonly OrderProcessor $orderProcessor
+    ) {}
 
     /**
      * @param mixed[] $buildSubject

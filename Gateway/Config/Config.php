@@ -8,6 +8,9 @@ declare(strict_types=1);
 
 namespace BTRL\Ipay\Gateway\Config;
 
+use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\Encryption\EncryptorInterface;
+
 class Config extends \Magento\Payment\Gateway\Config\Config
 {
     // Gateway URLs
@@ -47,6 +50,15 @@ class Config extends \Magento\Payment\Gateway\Config\Config
     const SALE_ACTION = 'sales';
     const STATUS_ACTION = 'status';
 
+    public function __construct(
+        ScopeConfigInterface $scopeConfig,
+        private readonly EncryptorInterface $encryptor,
+        $methodCode = null,
+        $pathPattern = self::DEFAULT_PATH_PATTERN
+    ) {
+        parent::__construct($scopeConfig, $methodCode, $pathPattern);
+    }
+
     public function isTestMode(?int $storeId = null): bool
     {
         return (bool)$this->getValue(Config::KEY_TEST_MODE, $storeId);
@@ -59,7 +71,7 @@ class Config extends \Magento\Payment\Gateway\Config\Config
 
     public function getMerchantPassword(?int $storeId = null): string
     {
-        return (string)$this->getValue(self::KEY_MERCHANT_PASSWORD, $storeId);
+        return $this->encryptor->decrypt((string)$this->getValue(self::KEY_MERCHANT_PASSWORD, $storeId));
     }
 
     public function getNewOrderStatus(?int $storeId = null): string

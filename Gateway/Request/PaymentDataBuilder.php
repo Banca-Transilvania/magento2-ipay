@@ -30,37 +30,17 @@ class PaymentDataBuilder implements BuilderInterface
 {
     const DELIVERY_TYPE = 'courier';
 
-    private UrlInterface $urlBuilder;
-    private UserData $userData;
-    private Json $json;
-    private Config $config;
-    private Country $country;
-    private Currency $currency;
-    private Phone $phone;
-    private Transliteration $transliteration;
-    private OrderProcessor $orderProcessor;
-
     public function __construct(
-        UrlInterface $urlBuilder,
-        UserData $userData,
-        Json $json,
-        Config $config,
-        Country $country,
-        Currency $currency,
-        Phone $phone,
-        Transliteration $transliteration,
-        OrderProcessor $orderProcessor
-    ) {
-        $this->urlBuilder = $urlBuilder;
-        $this->userData = $userData;
-        $this->json = $json;
-        $this->config = $config;
-        $this->country = $country;
-        $this->currency = $currency;
-        $this->phone = $phone;
-        $this->transliteration = $transliteration;
-        $this->orderProcessor = $orderProcessor;
-    }
+        private readonly UrlInterface $urlBuilder,
+        private readonly UserData $userData,
+        private readonly Json $json,
+        private readonly Config $config,
+        private readonly Country $country,
+        private readonly Currency $currency,
+        private readonly Phone $phone,
+        private readonly Transliteration $transliteration,
+        private readonly OrderProcessor $orderProcessor
+    ) {}
 
     /**
      * @param mixed[] $buildSubject

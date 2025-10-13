@@ -14,16 +14,10 @@ use Magento\Payment\Gateway\Http\{ClientInterface, TransferInterface};
 
 class PaymentTransaction implements ClientInterface
 {
-    private Client $client;
-    private IpayConfig $iPayConfig;
-
     public function __construct(
-        Client $client,
-        IpayConfig $iPayConfig
-    ) {
-        $this->client = $client;
-        $this->iPayConfig = $iPayConfig;
-    }
+        private readonly Client $client,
+        private readonly IpayConfig $iPayConfig
+    ) {}
 
     /**
      * @return mixed[]

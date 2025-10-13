@@ -11,8 +11,7 @@ namespace BTRL\Ipay\Api;
 interface RedirectUrl
 {
     /**
-     * @param string $orderId
      * @return string
      */
-    public function getUrl(string $orderId): string;
+    public function getUrl(): string;
 }

@@ -19,21 +19,16 @@ class Ipay extends Info
     /** @var string */
     protected $_template = 'BTRL_Ipay::info/ipay.phtml';
 
-    private OrderProcessor $orderProcessor;
-    private PaymentStatus $paymentStatusOptions;
-
     /**
      * @param mixed[] $data
      */
     public function __construct(
         Context $context,
-        OrderProcessor $orderProcessor,
-        PaymentStatus $paymentStatusOptions,
+        private readonly OrderProcessor $orderProcessor,
+        private readonly PaymentStatus $paymentStatusOptions,
         array $data = []
     ) {
         parent::__construct($context, $data);
-        $this->orderProcessor = $orderProcessor;
-        $this->paymentStatusOptions = $paymentStatusOptions;
     }
 
     /**

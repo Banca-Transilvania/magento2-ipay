@@ -13,12 +13,9 @@ use Magento\Framework\Data\OptionSourceInterface;
 
 class PaymentStatus implements OptionSourceInterface
 {
-    private PaymentStatusOptions $paymentStatusOptions;
-
-    public function __construct(PaymentStatusOptions $paymentStatusOptions)
-    {
-        $this->paymentStatusOptions = $paymentStatusOptions;
-    }
+    public function __construct(
+        private readonly PaymentStatusOptions $paymentStatusOptions
+    ) {}
 
     /**
      * @return mixed[]

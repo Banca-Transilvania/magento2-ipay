@@ -53,46 +53,20 @@ class OrderProcessor
 
     const ADDITIONAL_INFO_RESPONSE_KEY = 'status_check_response';
 
-    private IpayConfig $iPayConfig;
-    private OrderRepositoryInterface $orderRepository;
-    private InvoiceRepositoryInterface $invoiceRepository;
-    private TransactionRepositoryInterface $transactionRepository;
-    private InvoiceSender $invoiceSender;
-    private OrderFactory $orderFactory;
-    private OrderStatus $orderStatus;
-    private OrderService $orderService;
-    private HistoryFactory $orderHistoryFactory;
-    private Currency $currency;
-    private EventManager $eventManager;
-    private LoggerInterface $logger;
-
     public function __construct(
-        OrderRepositoryInterface $orderRepository,
-        InvoiceRepositoryInterface $invoiceRepository,
-        TransactionRepositoryInterface $transactionRepository,
-        InvoiceSender $invoiceSender,
-        OrderFactory $orderFactory,
-        OrderStatus $orderStatus,
-        OrderService $orderService,
-        HistoryFactory $orderHistoryFactory,
-        IpayConfig $iPayConfig,
-        Currency $currency,
-        EventManager $eventManager,
-        LoggerInterface $logger
-    ) {
-        $this->orderRepository = $orderRepository;
-        $this->invoiceRepository = $invoiceRepository;
-        $this->transactionRepository = $transactionRepository;
-        $this->invoiceSender = $invoiceSender;
-        $this->orderFactory = $orderFactory;
-        $this->orderStatus = $orderStatus;
-        $this->orderService = $orderService;
-        $this->orderHistoryFactory = $orderHistoryFactory;
-        $this->iPayConfig = $iPayConfig;
-        $this->currency = $currency;
-        $this->eventManager = $eventManager;
-        $this->logger = $logger;
-    }
+        private readonly OrderRepositoryInterface $orderRepository,
+        private readonly InvoiceRepositoryInterface $invoiceRepository,
+        private readonly TransactionRepositoryInterface $transactionRepository,
+        private readonly InvoiceSender $invoiceSender,
+        private readonly OrderFactory $orderFactory,
+        private readonly OrderStatus $orderStatus,
+        private readonly OrderService $orderService,
+        private readonly HistoryFactory $orderHistoryFactory,
+        private readonly IpayConfig $iPayConfig,
+        private readonly Currency $currency,
+        private readonly EventManager $eventManager,
+        private readonly LoggerInterface $logger
+    ) {}
 
     /**
      * @return mixed[]

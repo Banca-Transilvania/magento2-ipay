@@ -17,28 +17,14 @@ use Psr\Log\LoggerInterface;
 
 class Client
 {
-    private IpayConfig $iPayConfig;
-    private CurlFactory $curlFactory;
-    private StoreManagerInterface $storeManager;
-    private Json $json;
-    private LoggerInterface $logger;
-    private DebugLogger $debugLogger;
-
     public function __construct(
-        CurlFactory $curlFactory,
-        IpayConfig $iPayConfig,
-        StoreManagerInterface $storeManager,
-        Json $json,
-        LoggerInterface $logger,
-        DebugLogger $debugLogger
-    ) {
-        $this->curlFactory = $curlFactory;
-        $this->iPayConfig = $iPayConfig;
-        $this->storeManager = $storeManager;
-        $this->json = $json;
-        $this->logger = $logger;
-        $this->debugLogger = $debugLogger;
-    }
+        private readonly CurlFactory $curlFactory,
+        private readonly IpayConfig $iPayConfig,
+        private readonly StoreManagerInterface $storeManager,
+        private readonly Json $json,
+        private readonly LoggerInterface $logger,
+        private readonly DebugLogger $debugLogger
+    ) {}
 
     /**
      * @param mixed[] $request

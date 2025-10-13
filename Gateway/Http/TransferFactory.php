@@ -12,13 +12,9 @@ use Magento\Payment\Gateway\Http\{TransferBuilder, TransferFactoryInterface, Tra
 
 class TransferFactory implements TransferFactoryInterface
 {
-    private TransferBuilder $transferBuilder;
-
     public function __construct(
-        TransferBuilder $transferBuilder
-    ) {
-        $this->transferBuilder = $transferBuilder;
-    }
+        private readonly TransferBuilder $transferBuilder
+    ) {}
 
     /**
      * @param mixed[] $request

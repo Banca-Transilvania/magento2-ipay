@@ -24,25 +24,13 @@ class Index implements CsrfAwareActionInterface, HttpPostActionInterface
     const HTTP_INTERNAL_SUCCESS = 200;
     const HTTP_INTERNAL_ERROR = 500;
 
-    private RequestInterface $request;
-    private ResultFactory $resultFactory;
-    private Callback $callback;
-    private LoggerInterface $logger;
-    private DebugLogger $debugLogger;
-
     public function __construct(
-        RequestInterface $request,
-        ResultFactory $resultFactory,
-        Callback $callback,
-        LoggerInterface $logger,
-        DebugLogger $debugLogger
-    ) {
-        $this->request = $request;
-        $this->resultFactory = $resultFactory;
-        $this->callback = $callback;
-        $this->logger = $logger;
-        $this->debugLogger = $debugLogger;
-    }
+        private readonly RequestInterface $request,
+        private readonly ResultFactory $resultFactory,
+        private readonly Callback $callback,
+        private readonly LoggerInterface $logger,
+        private readonly DebugLogger $debugLogger
+    ) {}
 
     public function execute()
     {

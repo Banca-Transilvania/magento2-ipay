@@ -14,13 +14,9 @@ use Magento\Payment\Gateway\Http\{ClientInterface, TransferInterface};
 
 class CancelTransaction implements ClientInterface
 {
-    private Client $client;
-
     public function __construct(
-        Client $client
-    ) {
-        $this->client = $client;
-    }
+        private readonly Client $client
+    ) {}
 
     /**
      * @return mixed[]

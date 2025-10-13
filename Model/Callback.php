@@ -14,19 +14,11 @@ use Magento\Framework\Exception\LocalizedException;
 
 class Callback
 {
-    private OrderProcessor $orderProcessor;
-    private Config $config;
-    private string $algorithm;
-
     public function __construct(
-        OrderProcessor $orderProcessor,
-        Config $config,
-        string $algorithm = 'HS256'
-    ) {
-        $this->orderProcessor = $orderProcessor;
-        $this->config = $config;
-        $this->algorithm = $algorithm;
-    }
+        private readonly OrderProcessor $orderProcessor,
+        private readonly Config $config,
+        private readonly string $algorithm = 'HS256'
+    ) {}
 
     /**
      * @throws LocalizedException

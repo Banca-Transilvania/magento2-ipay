@@ -16,13 +16,9 @@ use Magento\Sales\Model\Order\Payment;
 
 class CancelDetailsHandler implements HandlerInterface
 {
-    private OrderStatus $orderStatus;
-
     public function __construct(
-        OrderStatus $orderStatus
-    ) {
-        $this->orderStatus = $orderStatus;
-    }
+        private readonly OrderStatus $orderStatus
+    ) {}
 
     /**
      * @param mixed[] $handlingSubject

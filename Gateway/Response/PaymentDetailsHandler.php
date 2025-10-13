@@ -20,16 +20,10 @@ use Magento\Sales\Model\Order\Payment\{
 
 class PaymentDetailsHandler implements HandlerInterface
 {
-    private TransactionBuilder $transactionBuilder;
-    private IpayConfig $iPayConfig;
-
     public function __construct(
-        TransactionBuilder $transactionBuilder,
-        IpayConfig $iPayConfig
-    ) {
-        $this->transactionBuilder = $transactionBuilder;
-        $this->iPayConfig = $iPayConfig;
-    }
+        private readonly TransactionBuilder $transactionBuilder,
+        private readonly IpayConfig $iPayConfig
+    ) {}
 
     /**
      * @param mixed[] $handlingSubject

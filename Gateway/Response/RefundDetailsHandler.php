@@ -16,16 +16,10 @@ use Magento\Sales\Model\Order\Payment;
 
 class RefundDetailsHandler implements HandlerInterface
 {
-    private OrderStatus $orderStatus;
-    private OrderProcessor $orderProcessor;
-
     public function __construct(
-        OrderStatus $orderStatus,
-        OrderProcessor $orderProcessor
-    ) {
-        $this->orderStatus = $orderStatus;
-        $this->orderProcessor = $orderProcessor;
-    }
+        private readonly OrderStatus $orderStatus,
+        private readonly OrderProcessor $orderProcessor
+    ) {}
 
     /**
      * @param mixed[] $handlingSubject

@@ -9,7 +9,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd"
 >
-    <route url="/V1/btrl/ipay/get-redirect-url/:orderId" method="GET">
+    <route url="/V1/btrl/ipay/get-redirect-url" method="GET">
         <service class="BTRL\Ipay\Api\RedirectUrl" method="getUrl"/>
         <resources>
             <resource ref="anonymous"/>

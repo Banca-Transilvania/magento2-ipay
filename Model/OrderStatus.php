@@ -12,13 +12,9 @@ use BTRL\Ipay\Gateway\Config\Config;
 
 class OrderStatus
 {
-    private Client $client;
-
     public function __construct(
-        Client $client
-    ) {
-        $this->client = $client;
-    }
+        private readonly Client $client
+    ) {}
 
     /**
      * @param mixed[] $request

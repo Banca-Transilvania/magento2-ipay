@@ -12,14 +12,9 @@ use Psr\Log\LoggerInterface;
 
 class Transliteration
 {
-    /** @var LoggerInterface */
-    private $logger;
-
     public function __construct(
-        LoggerInterface $logger
-    ) {
-        $this->logger = $logger;
-    }
+        private readonly LoggerInterface $logger
+    ) {}
 
     public function transliterate(string $content): string
     {

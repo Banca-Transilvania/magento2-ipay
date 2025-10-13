@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace BTRL\Ipay\Model\Config\Source;
 
-use BTRL\Ipay\Gateway\Config\Config;
 use Magento\Framework\Data\OptionSourceInterface;
 
 class ChargedCurrency implements OptionSourceInterface

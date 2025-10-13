@@ -8,32 +8,33 @@ declare(strict_types=1);
 
 namespace BTRL\Ipay\Service;
 
-use Magento\Sales\Api\OrderRepositoryInterface;
+use Magento\Checkout\Model\Session as CheckoutSession;
+use Magento\Sales\Api\Data\OrderInterface;
 
 class RedirectUrl implements \BTRL\Ipay\Api\RedirectUrl
 {
-    private OrderRepositoryInterface $orderRepository;
-
     public function __construct(
-        OrderRepositoryInterface $orderRepository
-    ) {
-        $this->orderRepository = $orderRepository;
-    }
+        private readonly CheckoutSession $checkoutSession
+    ) {}
 
-    public function getUrl(string $orderId): string
+    public function getUrl(): string
     {
         try {
-            $order = $this->orderRepository->get((int)$orderId);
-            $payment = $order->getPayment();
-            $additionalInformation = $payment->getAdditionalInformation();
+            $order = $this->getOrderFromSession();
+            if ($payment = $order->getPayment()) {
+                $additionalInformation = $payment->getAdditionalInformation();
 
-            if (isset($additionalInformation['redirectUrl'])) {
-                return $additionalInformation['redirectUrl'];
+                if (isset($additionalInformation['redirectUrl'])) {
+                    return $additionalInformation['redirectUrl'];
+                }
             }
-        } catch (\Exception $exception) {
-            return '';
-        }
+        } catch (\Exception $exception) {}
 
         return '';
+    }
+
+    private function getOrderFromSession(): OrderInterface
+    {
+        return $this->checkoutSession->getLastRealOrder();
     }
 }

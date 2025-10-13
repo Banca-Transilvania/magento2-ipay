@@ -18,22 +18,12 @@ class ConfigProvider implements ConfigProviderInterface
 {
     const CODE = 'btrl_ipay';
 
-    private Config $config;
-    private RequestInterface $request;
-    private StoreManagerInterface $storeManager;
-    private UrlInterface $urlBuilder;
-
     public function __construct(
-        Config $config,
-        RequestInterface $request,
-        StoreManagerInterface $storeManager,
-        UrlInterface $urlBuilder
-    ) {
-        $this->config = $config;
-        $this->request = $request;
-        $this->storeManager = $storeManager;
-        $this->urlBuilder = $urlBuilder;
-    }
+        private readonly Config $config,
+        private readonly RequestInterface $request,
+        private readonly StoreManagerInterface $storeManager,
+        private readonly UrlInterface $urlBuilder
+    ) {}
 
     /**
      * @return mixed[]

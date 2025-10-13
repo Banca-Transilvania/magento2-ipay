@@ -16,16 +16,10 @@ class DebugLogger
 {
     const CONFIG_PATH_LOG_ENABLE = 'payment/btrl_ipay/debug_log/enable';
 
-    private ScopeConfigInterface $scopeConfig;
-    private LoggerInterface $logger;
-
     public function __construct(
-        LoggerInterface $logger,
-        ScopeConfigInterface $scopeConfig
-    ) {
-        $this->logger = $logger;
-        $this->scopeConfig = $scopeConfig;
-    }
+        private readonly LoggerInterface $logger,
+        private readonly ScopeConfigInterface $scopeConfig
+    ) {}
 
     public function logData(string $data): void
     {

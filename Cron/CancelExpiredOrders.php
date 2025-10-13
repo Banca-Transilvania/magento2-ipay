@@ -20,36 +20,18 @@ use Magento\Sales\Model\ResourceModel\Order\{
 
 class CancelExpiredOrders
 {
-    private OrderCollectionFactory $orderCollectionFactory;
-    private ScopeConfigInterface $scopeConfig;
-    private OrderProcessor $orderProcessor;
-    private TimezoneInterface $timezone;
-
-    /** @var string[] */
-    private array $methodCodes;
-
-    /** @var string[] */
-    private array $stateCodes;
-
     /**
      * @param string[]|null $methodCodes
      * @param string[]|null $stateCodes
      */
     public function __construct(
-        OrderCollectionFactory $orderCollectionFactory,
-        OrderProcessor $orderProcessor,
-        ScopeConfigInterface $scopeConfig,
-        TimezoneInterface $timezone,
-        ?array $methodCodes = [],
-        ?array $stateCodes = []
-    ) {
-        $this->orderCollectionFactory = $orderCollectionFactory;
-        $this->orderProcessor = $orderProcessor;
-        $this->scopeConfig = $scopeConfig;
-        $this->timezone = $timezone;
-        $this->methodCodes = $methodCodes;
-        $this->stateCodes = $stateCodes;
-    }
+        private readonly OrderCollectionFactory $orderCollectionFactory,
+        private readonly OrderProcessor $orderProcessor,
+        private readonly ScopeConfigInterface $scopeConfig,
+        private readonly TimezoneInterface $timezone,
+        private readonly ?array $methodCodes = [],
+        private readonly ?array $stateCodes = []
+    ) {}
 
     /**
      * @throws NoSuchEntityException

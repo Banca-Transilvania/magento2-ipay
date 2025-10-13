@@ -13,13 +13,9 @@ use Psr\Log\LoggerInterface;
 
 class AddStatusToSalesOrderGrid
 {
-    private LoggerInterface $logger;
-
     public function __construct(
-        LoggerInterface $logger
-    ) {
-        $this->logger = $logger;
-    }
+        private readonly LoggerInterface $logger
+    ) {}
 
     /**
      * @see Collection::load()

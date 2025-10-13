@@ -23,31 +23,15 @@ use Magento\Payment\Gateway\ErrorMapper\ErrorMessageMapper;
 
 class Result implements HttpGetActionInterface
 {
-    private RequestInterface $request;
-    private ResponseInterface $response;
-    private CheckoutSession $checkoutSession;
-    private OrderProcessor $orderProcessor;
-    private RedirectInterface $redirect;
-    private ErrorMessageMapper $errorMessageMapper;
-    private MessageManager $messageManager;
-
     public function __construct(
-        RequestInterface $request,
-        ResponseInterface $response,
-        RedirectInterface $redirect,
-        CheckoutSession $checkoutSession,
-        OrderProcessor $orderProcessor,
-        ErrorMessageMapper $errorMessageMapper,
-        MessageManager $messageManager
-    ) {
-        $this->request = $request;
-        $this->response = $response;
-        $this->redirect = $redirect;
-        $this->checkoutSession = $checkoutSession;
-        $this->orderProcessor = $orderProcessor;
-        $this->errorMessageMapper = $errorMessageMapper;
-        $this->messageManager = $messageManager;
-    }
+        private readonly RequestInterface $request,
+        private readonly ResponseInterface $response,
+        private readonly RedirectInterface $redirect,
+        private readonly CheckoutSession $checkoutSession,
+        private readonly OrderProcessor $orderProcessor,
+        private readonly ErrorMessageMapper $errorMessageMapper,
+        private readonly MessageManager $messageManager
+    ) {}
 
     public function execute()
     {

@@ -48,9 +48,9 @@ function (
                         fullScreenLoader.stopLoader();
                     }
                 ).done(
-                    function (orderId) {
+                    function () {
                         self.afterPlaceOrder();
-                        self.getOrderRedirectUrl(orderId).done(
+                        self.getOrderRedirectUrl().done(
                             function(response) {
                                 window.location.href = response;
                             }
@@ -60,8 +60,8 @@ function (
             }
         },
 
-        getOrderRedirectUrl: function(orderId) {
-            return storage.get(urlBuilder.createUrl('/btrl/ipay/get-redirect-url/' + orderId, {}));
+        getOrderRedirectUrl: function() {
+            return storage.get(urlBuilder.createUrl('/btrl/ipay/get-redirect-url', {}));
         }
     });
 });

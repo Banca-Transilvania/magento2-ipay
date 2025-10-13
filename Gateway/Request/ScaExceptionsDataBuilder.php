@@ -16,16 +16,10 @@ use Magento\Payment\Gateway\Request\BuilderInterface;
 
 class ScaExceptionsDataBuilder implements BuilderInterface
 {
-    private Json $json;
-    private IpayConfig $iPayConfig;
-
     public function __construct(
-        Json $json,
-        IpayConfig $iPayConfig
-    ) {
-        $this->json = $json;
-        $this->iPayConfig = $iPayConfig;
-    }
+        private readonly Json $json,
+        private readonly IpayConfig $iPayConfig
+    ) {}
 
     /**
      * @param mixed[] $buildSubject

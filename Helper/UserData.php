@@ -15,17 +15,12 @@ class UserData
 {
     const DESKTOP_DEVICE = 'DESKTOP';
     const MOBILE_DEVICE = 'MOBILE';
-
-    private ResolverInterface $localResolver;
-    private Header $httpHeader;
+    const MOBILE_REGEX = '/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i';
 
     public function __construct(
-        ResolverInterface $localResolver,
-        Header $httpHeader
-    ) {
-        $this->localResolver = $localResolver;
-        $this->httpHeader = $httpHeader;
-    }
+        private readonly ResolverInterface $localResolver,
+        private readonly Header $httpHeader
+    ) {}
 
     public function getLanguage(): string
     {
@@ -38,8 +33,7 @@ class UserData
     public function getDeviceType(): string
     {
         $userAgent = $this->httpHeader->getHttpUserAgent();
-        $mobileRegex = '/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i';
-        $match = preg_match($mobileRegex, $userAgent);
+        $match = preg_match(self::MOBILE_REGEX, $userAgent);
 
         if ($match) {
             return self::MOBILE_DEVICE;

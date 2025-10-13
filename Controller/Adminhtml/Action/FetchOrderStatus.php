@@ -13,14 +13,11 @@ use Magento\Backend\App\Action;
 
 class FetchOrderStatus extends Action
 {
-    private OrderProcessor $orderProcessor;
-
     public function __construct(
         Action\Context $context,
-        OrderProcessor $orderProcessor
+        private readonly OrderProcessor $orderProcessor
     ) {
         parent::__construct($context);
-        $this->orderProcessor = $orderProcessor;
     }
 
     public function execute()
