@@ -9,7 +9,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd"
 >
-    <preference for="BTRL\Ipay\Api\RedirectUrl" type="BTRL\Ipay\Service\RedirectUrl" />
+    <preference for="BTRL\Ipay\Api\RedirectUrlInterface" type="BTRL\Ipay\Service\RedirectUrl" />
     <type name="BTRL\Ipay\Controller\Process\Result">
         <arguments>
             <argument

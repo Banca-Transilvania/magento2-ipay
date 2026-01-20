@@ -32,7 +32,7 @@ class Client
      * @return mixed[]
      * @throws NoSuchEntityException
      */
-    public function makeRequest(string $paymentAction, array $request, array $headers = [], int $storeId = null): array
+    public function makeRequest(string $paymentAction, array $request, array $headers = [], ?int $storeId = null): array
     {
         if ($storeId === null) {
             $storeId = (int)$this->storeManager->getStore()->getId();

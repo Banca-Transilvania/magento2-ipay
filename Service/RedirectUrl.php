@@ -11,7 +11,7 @@ namespace BTRL\Ipay\Service;
 use Magento\Checkout\Model\Session as CheckoutSession;
 use Magento\Sales\Api\Data\OrderInterface;
 
-class RedirectUrl implements \BTRL\Ipay\Api\RedirectUrl
+class RedirectUrl implements \BTRL\Ipay\Api\RedirectUrlInterface
 {
     public function __construct(
         private readonly CheckoutSession $checkoutSession
